@@ -14,11 +14,11 @@ Mock é uma técnica na programação onde criamos estruturas para simular o com
 
 Há várias formas de gerar mocks para testes automatizados. Uma das maneiras mais comuns é utilizar objetos que implementem contratos de interfaces e substituir o comportamento desses objetos conforme a bateria de testes é executada. 
 
-Recomento a leitura deste [post](../unit-test-without-interface-using-aws-asdk-go-v2/index) onde eu explico sobre como implementar testes de unidade utilizando interfaces para "mockar" comportamentos do [aws-sdk-go-v2]("https://github.com/aws/aws-sdk-go-v2").
+Recomento a leitura deste [post](./2023-04-21-crie-mocks-sem-uso-de-interface-aws-sdk-go-v2.md) onde eu explico sobre como implementar testes de unidade utilizando interfaces para "mockar" comportamentos do [aws-sdk-go-v2]("https://github.com/aws/aws-sdk-go-v2").
 
 ## Show me the code!
 
-Será usado o mesmo exemplo descrito neste [artigo](../unit-test-without-interface-using-aws-asdk-go-v2/), porém, não criaremos nenhuma struct com funções simuladas de interfaces, em vez disso utilizaremos o middleware do pacote aws-asdk-go-v2. O middleware do pacote aws-sdk-go-v2 é um componente que permite adicionar comportamentos personalizados ao pipeline de solicitação de serviços da AWS. Ele fornece uma interface para manipular solicitações e respostas, e suporta vários recursos, como interceptores, validadores e registradores de solicitação.
+Será usado o mesmo exemplo descrito neste [artigo](./2023-04-21-crie-mocks-sem-uso-de-interface-aws-sdk-go-v2.md), porém, não criaremos nenhuma struct com funções simuladas de interfaces, em vez disso utilizaremos o middleware do pacote aws-asdk-go-v2. O middleware do pacote aws-sdk-go-v2 é um componente que permite adicionar comportamentos personalizados ao pipeline de solicitação de serviços da AWS. Ele fornece uma interface para manipular solicitações e respostas, e suporta vários recursos, como interceptores, validadores e registradores de solicitação.
 
 *Para saber mais visite a documentação oficial da AWS clicando [aqui](https://aws.github.io/aws-sdk-go-v2/docs/middleware/)*
 
