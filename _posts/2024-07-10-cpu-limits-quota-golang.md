@@ -30,13 +30,13 @@ Ocorre que, enquanto os CPU limits consideram os cgroups, o runtime do Golang ol
     - Cores Azul e Rosa representam as coroutines (gorotinas) sendo executadas sob as threads.
     - Tarja bege abaixo das tarjas rosa e azul representam algumas chamadas syscall que a aplicação efetua
 
-    ![figura-1](./figure-1.png)
+    ![figura-1](/assets/img/figure-1.png)
 
 
 2. Veja o que acontece quando aplicamos um limit de cpu, neste caso usarei o seguinte comando: 
     `docker run --cpus 0.5 ...`
     Perceba que agora temos um intervalo de espaço maior entre as cores beges e se expandir a img conseguirá notar que a linha do tempo em alguns casos ultrapassam 50ms e que as tarjas beges executam em um periodo de 25ms e o restante desse tempo a goroutine esta parada fazendo nada e aqui está o throttling que mencionei!
-    ![figura-2](./figure-2.png)
+    ![figura-2](/assets/img/figure-2.png)
 
     Como já mencionado isto ocorreu porque o runtime do Golang ignorou a configuração de limits de cpu aplicada no container, para resolver isto basta especificar a quantidade de CPU para o runtime do golang atráves da váriavel `GOMAXPROCS`
 
@@ -44,7 +44,7 @@ Ocorre que, enquanto os CPU limits consideram os cgroups, o runtime do Golang ol
     
 
 3. Por ultimo, executei o mesmo container mas agora estou especificando a quantidade de CPU para o runtime do Golang atráves da váriavel `GOMAXPROCS`, este é o comando: `docker run -e GOMAXPROCS=1 --cpus 0.5` vejamos o resultado abaixo:
-   ![figura-3](.figure-3.png)
+   ![figura-3](/assets/img/figure-3.png)
 
     Como podemos ver, agora a aplicação está sendo executada a cada 50ms sobe 1 thread do SO em seguida, não realiza nenhuma execução durante os 50 ms, exatamente como podemos esperar para esta cota.
 
