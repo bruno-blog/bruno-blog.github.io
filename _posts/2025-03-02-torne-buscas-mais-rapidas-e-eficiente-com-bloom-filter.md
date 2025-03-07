@@ -28,7 +28,7 @@ De fato, ao armazenar e-mails já consultados em um cache (como Redis ou Memcach
 
 Se você utilizar um cache tradicional, ele exigirá espaço proporcional à quantidade de registros armazenados. Para milhões de e-mails, o custo de memória pode ser considerável.  
 
-Agora, e se eu te dissesse que existe uma solução extremamente eficiente, capaz de armazenar **1 milhão de registros em apenas 1 MB de memória**, fornecendo uma resposta rápida sobre a existência de um dado?  
+Agora, e se eu te dissesse que existe uma solução extremamente eficiente, capaz de armazenar **1 milhão de registros em apenas 1 MB de memória** (com base na [calculadora de bloom filter](https://hur.st/bloomfilter/?n=1000000&p=0.01&m=&k=)), fornecendo uma resposta rápida sobre a existência de um dado?  
 
 Bem-vindo ao **Bloom Filter**!  
 
@@ -73,6 +73,8 @@ O Bloom Filter é ideal para cenários onde:
 Ao enfrentar problemas de performance causados por consultas repetitivas ao banco, a primeira solução pode parecer ser um cache. No entanto, para **problemas de existência de dados**, o **Bloom Filter** é uma alternativa extremamente eficiente e econômica.  
 
 Ele **reduz drasticamente as consultas ao banco**, **consome pouca memória** e melhora o desempenho geral da aplicação. 
+
+Embora esse algoritmo possa parecer simples e pouco relevante à primeira vista, não se engane! Ele é amplamente utilizado em casos críticos e de alto desempenho, como na filtragem de consultas DNS, onde ajuda a bloquear domínios maliciosos antes que os servidores externos sejam acessados.
 
 # Show me the code
 
